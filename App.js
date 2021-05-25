@@ -26,8 +26,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Buttons from './components/Buttons';
-import Increment from './components/Increment';
-import Decrement from './components/Decrement';
+// import Increment from './components/Increment';
+// import Decrement from './components/Decrement';
 
 const Section = ({ children, title }): Node => {
   const isDarkMode = useColorScheme() === 'dark';

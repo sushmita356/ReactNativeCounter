@@ -10,7 +10,7 @@ function Buttons() {
     return (
         <View>
             <View style={styles.increment}>
-                <Increment name={count} />
+                <Increment counter={count} />
             </View>
             <View style={styles.buttons}>
                 <TouchableOpacity
@@ -25,10 +25,10 @@ function Buttons() {
                     <Text style={styles.btnColor}>-</Text>
                 </TouchableOpacity>
                 <Text style={styles.text}>Current value =
-          {count}</Text>
+                {count}</Text>
             </View>
             <View style={styles.decrement}>
-                <Decrement name={dcount} />
+                <Decrement counter={dcount} />
             </View>
         </View>
     );
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        height: '40%'
 
     }
 });

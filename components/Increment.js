@@ -6,10 +6,8 @@ function Increment(props) {
         <View style={styles.container}>
             <View style={styles.wrapText}>
                 <Text style={styles.text}>Increment value</Text>
-                <Text style={styles.text}>{props.name}</Text>
-
+                <Text style={styles.text}>{props.counter}</Text>
             </View>
-
         </View>
     );
 }
