@@ -6,6 +6,8 @@ import Decrement from './Decrement';
 function Buttons() {
     const [count, IncrementCount] = useState(0);
     const [dcount, DecrementCount] = useState(0);
+    const [IncbtnClicked, setIncBtn] = useState(false);
+    const [decBtnClicked, setDecBtn] = useState(false);
 
     return (
         <View>
@@ -14,18 +16,32 @@ function Buttons() {
             </View>
             <View style={styles.buttons}>
                 <TouchableOpacity
-                    onPress={() => IncrementCount(count + 1)}
+                    onPress={() => {
+                        IncrementCount(count + 1);
+                        setIncBtn(true);
+                        setDecBtn(false);
+
+                    }}
+                    // onPress={() => IncrementCount(count + 1)}
                     style={styles.roundButton1}>
                     <Text style={styles.btnColor}>+</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => DecrementCount(dcount - 1)}
+                    onPress={() => {
+                        DecrementCount(dcount - 1);
+                        setDecBtn(true);
+                        setIncBtn(false)
+                    }}
+
+                    // onPress={() => DecrementCount(dcount - 1)}
                     style={styles.roundButton2}>
                     <Text style={styles.btnColor}>-</Text>
                 </TouchableOpacity>
-                <Text style={styles.text}>Current value =
-                {count}</Text>
+                <Text style={styles.text}>Current value = {console.log(decBtnClicked, IncbtnClicked, typeof (IncbtnClicked), 'incbtn', count, dcount, typeof (count))}
+                    {IncbtnClicked === true ? <Text>{count}</Text> : <Text>{dcount}</Text>}
+                </Text>
+
             </View>
             <View style={styles.decrement}>
                 <Decrement counter={dcount} />
@@ -85,7 +101,6 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: '40%'
-
+        height: '40%',
     }
 });
