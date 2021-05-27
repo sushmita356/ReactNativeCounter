@@ -15,25 +15,28 @@ function Buttons() {
                 <Increment counter={count} />
             </View>
             <View style={styles.buttons}>
-                <TouchableOpacity
-                    onPress={() => {
-                        IncrementCount(count + 1);
-                        setIncBtn(true);
-                        setDecBtn(false);
+                <View style={styles.btnInrow}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            IncrementCount(count + 1);
+                            setIncBtn(true);
+                            setDecBtn(false);
 
-                    }}
-                    style={styles.roundButton1}>
-                    <Text style={styles.iconColor}>+</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => {
-                        DecrementCount(dcount - 1);
-                        setDecBtn(true);
-                        setIncBtn(false)
-                    }}
-                    style={styles.roundButton2}>
-                    <Text style={styles.iconColor}>-</Text>
-                </TouchableOpacity>
+                        }}
+                        style={styles.roundButton1}>
+                        <Text style={styles.iconColor}>+</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => {
+                            DecrementCount(dcount - 1);
+                            setDecBtn(true);
+                            setIncBtn(false)
+                        }}
+                        style={styles.roundButton2}>
+                        <Text style={styles.iconColor}>-</Text>
+                    </TouchableOpacity>
+
+                </View>
                 <Text style={styles.text}>Current value ={IncbtnClicked === true ? <Text>{count}</Text> : <Text>{dcount}</Text>}
                 </Text>
             </View>
@@ -50,24 +53,27 @@ export default Buttons;
 const styles = StyleSheet.create({
     roundButton1: {
         width: '30%',
-        height: '40%',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // padding: 10,
+        height: '50%',
+        justifyContent: 'center',
+        alignItems: 'center',
         borderRadius: 100,
         backgroundColor: '#3498DB',
         borderColor: 'red'
     },
     roundButton2: {
-        // marginTop: 20,
         width: '30%',
-        height: '40%',
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // padding: 10,
+        height: '50%',
+        justifyContent: 'center',
+        alignItems: 'center',
         borderRadius: 100,
         backgroundColor: '#3498DB',
     },
+    iconColor: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'white',
+    },
+
     text: {
         fontSize: 30,
         textAlign: 'center',
@@ -75,14 +81,6 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        // borderWidth:4
-
-    },
-    iconColor: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: 'red',
-
 
     },
     increment: {
@@ -95,12 +93,18 @@ const styles = StyleSheet.create({
 
     },
     buttons: {
-        // display: "flex",
-        // justifyContent: "center",
-        // alignItems: "center",
         height: '40%',
         backgroundColor: 'white',
-        // flexDirection:'row'
+
+    },
+    btnInrow: {
+        flexDirection: "row",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: 'space-around',
+        width: '100%',
+        height: '70%'
+
 
     }
 });
